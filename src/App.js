@@ -78,7 +78,7 @@ function App() {
             setNewTarjetaTitle1(e.target.value)}/>
           <button
             className="btn btn-success"
-            onClick={() => {  handleAddTarjeta('mejorar', newTarjetaTitle1, '');  setNewTarjetaTitle1(''); }}
+            onClick={() => {  handleAddTarjeta('bien', newTarjetaTitle1, '');  setNewTarjetaTitle1(''); }}
             >  Agregar
           </button>
         </Columna>
