@@ -8,7 +8,9 @@ function App() {
   const [bien, setBien] = useState([]);
   const [mejorar, setMejorar] = useState([]);
   const [kudos, setKudos] = useState([]);
-
+  const [newTarjetaTitle1, setNewTarjetaTitle1] = useState('');
+  const [newTarjetaTitle2, setNewTarjetaTitle2] = useState('');
+  const [newTarjetaTitle3, setNewTarjetaTitle3] = useState('');
   const handleLike = (columna, index) => {
     switch (columna) {
       case 'bien':
@@ -72,11 +74,12 @@ function App() {
               onLike={() => handleLike('bien', index)}
             />
           ))}
+          <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle1}  onChange={(e) => 
+            setNewTarjetaTitle1(e.target.value)}/>
           <button
             className="btn btn-success"
-            onClick={() => handleAddTarjeta('bien', 'Nueva idea', '')}
-          >
-            Agregar tarjeta
+            onClick={() => {  handleAddTarjeta('mejorar', newTarjetaTitle1, '');  setNewTarjetaTitle1(''); }}
+            >  Agregar
           </button>
         </Columna>
         <Columna titulo="Para mejorar" color="#dc3545">
@@ -89,11 +92,12 @@ function App() {
               onLike={() => handleLike('mejorar', index)}
             />
           ))}
+          <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle2}  onChange={(e) => 
+            setNewTarjetaTitle2(e.target.value)}/>
           <button
             className="btn btn-danger"
-            onClick={() => handleAddTarjeta('mejorar', 'Nueva idea', '')}
-          >
-            Agregar tarjeta
+            onClick={() => {  handleAddTarjeta('mejorar', newTarjetaTitle2, '');  setNewTarjetaTitle2(''); }}
+            >  Agregar
           </button>
         </Columna>
         <Columna titulo="Kudos" color="#007bff">
@@ -106,12 +110,14 @@ function App() {
               onLike={() => handleLike('kudos', index)}
             />
           ))}
+          <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle3}  onChange={(e) => 
+            setNewTarjetaTitle3(e.target.value)}/>
           <button
-            className =             "btn btn-primary"
-            onClick={() => handleAddTarjeta('kudos', 'Nueva idea', '')}
-          >
-            Agregar tarjeta
+            className="btn btn-primary"
+            onClick={() => {  handleAddTarjeta('kudos', newTarjetaTitle3, '');  setNewTarjetaTitle3(''); }}
+            >  Agregar
           </button>
+
         </Columna>
       </div>
     </div>

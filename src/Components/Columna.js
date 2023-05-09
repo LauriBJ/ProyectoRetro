@@ -7,6 +7,7 @@ import classnames from 'classnames';
 
 const COLOR_OPTIONS = ['#f2f2f2', '#e6e6e6', '#d9d9d9', '#cccccc', '#b3b3b3', '#999999', '#7f7f7f', '#666666', '#4c4c4c', '#333333'];
 
+
 function Columna({ titulo, color, children }) {
   const [selectedColor, setSelectedColor] = useState(color);
   const [showColorPicker, setShowColorPicker] = useState(false);
