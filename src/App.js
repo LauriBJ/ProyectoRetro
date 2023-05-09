@@ -14,47 +14,56 @@ function App() {
   const handleLike = (columna, index) => {
     switch (columna) {
       case 'bien':
-        setBien((prev) => {
-          const copy = [...prev];
-          copy[index].likes += 1;
-          return copy;
+        setBien(prev => {
+          const updated = [...prev];
+          updated[index] = {
+            ...updated[index],
+            likes: updated[index].likes + 1
+          };
+          return updated;
         });
         break;
       case 'mejorar':
-        setMejorar((prev) => {
-          const copy = [...prev];
-          copy[index].likes += 1;
-          return copy;
+        setMejorar(prev => {
+          const updated = [...prev];
+          updated[index] = {
+            ...updated[index],
+            likes: updated[index].likes + 1
+          };
+          return updated;
         });
         break;
       case 'kudos':
-        setKudos((prev) => {
-          const copy = [...prev];
-          copy[index].likes += 1;
-          return copy;
+        setKudos(prev => {
+          const updated = [...prev];
+          updated[index] = {
+            ...updated[index],
+            likes: updated[index].likes + 1
+          };
+          return updated;
         });
         break;
       default:
         break;
     }
   };
-
+  
   const handleAddTarjeta = (columna, titulo, contenido) => {
     const nuevaTarjeta = {
       titulo,
       contenido,
-      likes: 0,
+      likes: 0
     };
-
+    
     switch (columna) {
       case 'bien':
-        setBien((prev) => [...prev, nuevaTarjeta]);
+        setBien(prev => [...prev, nuevaTarjeta]);
         break;
       case 'mejorar':
-        setMejorar((prev) => [...prev, nuevaTarjeta]);
+        setMejorar(prev => [...prev, nuevaTarjeta]);
         break;
       case 'kudos':
-        setKudos((prev) => [...prev, nuevaTarjeta]);
+        setKudos(prev => [...prev, nuevaTarjeta]);
         break;
       default:
         break;
@@ -77,7 +86,7 @@ function App() {
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle1}  onChange={(e) => 
             setNewTarjetaTitle1(e.target.value)}/>
           <button
-            className="btn btn-success"
+            className="btn btn-success shadow"
             onClick={() => {  handleAddTarjeta('bien', newTarjetaTitle1, '');  setNewTarjetaTitle1(''); }}
             >  Agregar
           </button>
@@ -95,7 +104,7 @@ function App() {
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle2}  onChange={(e) => 
             setNewTarjetaTitle2(e.target.value)}/>
           <button
-            className="btn btn-danger"
+            className="btn btn-danger shadow" 
             onClick={() => {  handleAddTarjeta('mejorar', newTarjetaTitle2, '');  setNewTarjetaTitle2(''); }}
             >  Agregar
           </button>
@@ -113,7 +122,7 @@ function App() {
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle3}  onChange={(e) => 
             setNewTarjetaTitle3(e.target.value)}/>
           <button
-            className="btn btn-primary"
+            className="btn btn-primary shadow"
             onClick={() => {  handleAddTarjeta('kudos', newTarjetaTitle3, '');  setNewTarjetaTitle3(''); }}
             >  Agregar
           </button>
