@@ -9,6 +9,8 @@ function App() {
   const [mejorar, setMejorar] = useState([]);
   const [kudos, setKudos] = useState([]);
 
+  const [idCounter, setIdCounter] = useState(0);
+
   const [newTarjetaTitle1, setNewTarjetaTitle1] = useState('');
   const [newTarjetaTitle2, setNewTarjetaTitle2] = useState('');
   const [newTarjetaTitle3, setNewTarjetaTitle3] = useState('');
@@ -57,6 +59,7 @@ function App() {
     }
     
      const nuevaTarjeta = {
+      id: idCounter,
       titulo,
       contenido,
       likes: 0
@@ -77,6 +80,8 @@ function App() {
       default:
         break;
     }
+
+    setIdCounter(prevCounter => prevCounter+1);
   };
 
   const handleBorrarTarjeta = (columna, id) => {
@@ -107,6 +112,7 @@ function App() {
               likes={tarjeta.likes}
               onLike={() => handleLike('bien', index)}
               onBorrar={(id) => handleBorrarTarjeta('bien', id)}
+              id = {tarjeta.id}
             />
           ))}
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle1}  onChange={(e) => 
@@ -125,6 +131,8 @@ function App() {
               contenido={tarjeta.contenido}
               likes={tarjeta.likes}
               onLike={() => handleLike('mejorar', index)}
+              onBorrar={(id) => handleBorrarTarjeta('mejorar', id)}
+              id = {tarjeta.id}
             />
           ))}
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle2}  onChange={(e) => 
@@ -143,6 +151,8 @@ function App() {
               contenido={tarjeta.contenido}
               likes={tarjeta.likes}
               onLike={() => handleLike('kudos', index)}
+              onBorrar={(id) => handleBorrarTarjeta('kudos', id)}
+              id = {tarjeta.id}
             />
           ))}
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle3}  onChange={(e) => 

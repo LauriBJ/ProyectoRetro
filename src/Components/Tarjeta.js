@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-function Tarjeta({ titulo, contenido, likes, onLike, onBorrar }) {
+function Tarjeta({ titulo, contenido, likes, onLike, onBorrar, id }) {
   const [liked, setLiked] = useState(false);
   const [comentarios, setComentarios] = useState([]);
   const [nuevoComentario, setNuevoComentario] = useState('');
 
-  function borrarTarjeta() {
-    onBorrar();
+  const borrarTarjeta = () => { onBorrar(id);
   }
   
 
@@ -57,7 +56,7 @@ function Tarjeta({ titulo, contenido, likes, onLike, onBorrar }) {
                {`${likes} ${likes === 1 ? 'like' : 'likes'}`}
         </button>
         <button className="btn btn-sm btn-outline-danger ml-autor" onClick=
-            {borrarTarjeta}><FontAwesomeIcon icon={faTrash}/>
+            {borrarTarjeta}><FontAwesomeIcon icon={faTrash} />
           </button>
       </div>
     </div>
