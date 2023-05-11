@@ -79,6 +79,22 @@ function App() {
     }
   };
 
+  const handleBorrarTarjeta = (columna, id) => {
+    switch (columna) {
+      case 'bien':
+        setBien(prev => prev.filter(tarjeta => tarjeta.id !== id));
+        break;
+      case 'mejorar':
+        setMejorar(prev => prev.filter(tarjeta => tarjeta.id !== id));
+        break;
+      case 'kudos':
+        setKudos(prev => prev.filter(tarjeta => tarjeta.id !== id));
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="container my-5">
       <div className="row">
@@ -90,6 +106,7 @@ function App() {
               contenido={tarjeta.contenido}
               likes={tarjeta.likes}
               onLike={() => handleLike('bien', index)}
+              onBorrar={(id) => handleBorrarTarjeta('bien', id)}
             />
           ))}
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle1}  onChange={(e) => 
