@@ -34,9 +34,6 @@ function Tarjeta({ titulo, contenido, likes, onLike, onBorrar, id }) {
       <div className="card-body">
         <h6 className="card-title">{titulo}</h6>
         <p className="card-text">{contenido}</p>
-        <button className="btn btn-outline-secondary" onClick={handleLike}>
-               {`${likes} ${likes === 1 ? 'like' : 'likes'}`}
-        </button>
         <form onSubmit={handleAgregarComentario}>
           <div className="input-group mt-2">
             <input
@@ -52,14 +49,18 @@ function Tarjeta({ titulo, contenido, likes, onLike, onBorrar, id }) {
         {comentarios.map((comentario, index) => (
           <p key={index} className="mt-2">{comentario}</p>
         ))}
-        <button className="btn btn-outline-secondary" onClick={handleLike}>
+        
+        <button className=" btn btn-outline-secondary" onClick={handleLike}>
                {`${likes} ${likes === 1 ? 'like' : 'likes'}`}
         </button>
         <button className="btn btn-sm btn-outline-danger ml-autor" onClick=
             {borrarTarjeta}><FontAwesomeIcon icon={faTrash} />
           </button>
       </div>
-    </div>
+          <span className="ml-2 shadow">
+            {`${comentarios.length} ${comentarios.length === 1 ? 'comentario' : 'comentarios'}`}
+          </span>
+   </div>
   );
   
 };
