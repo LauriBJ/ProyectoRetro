@@ -8,9 +8,11 @@ function App() {
   const [bien, setBien] = useState([]);
   const [mejorar, setMejorar] = useState([]);
   const [kudos, setKudos] = useState([]);
+
   const [newTarjetaTitle1, setNewTarjetaTitle1] = useState('');
   const [newTarjetaTitle2, setNewTarjetaTitle2] = useState('');
   const [newTarjetaTitle3, setNewTarjetaTitle3] = useState('');
+
   const handleLike = (columna, index) => {
     switch (columna) {
       case 'bien':
@@ -49,11 +51,18 @@ function App() {
   };
   
   const handleAddTarjeta = (columna, titulo, contenido) => {
-    const nuevaTarjeta = {
+    if (titulo.trim() === '') {
+      alert('El título de la tarjeta es obligatorio');
+      return;
+    }
+    
+     const nuevaTarjeta = {
       titulo,
       contenido,
       likes: 0
     };
+    
+
     
     switch (columna) {
       case 'bien':
@@ -122,7 +131,7 @@ function App() {
           <input type="text" placeholder='Titulo de la tarjeta' value={newTarjetaTitle3}  onChange={(e) => 
             setNewTarjetaTitle3(e.target.value)}/>
           <button
-            className="btn btn-primary shadow"
+            className="btn btn-primary"
             onClick={() => {  handleAddTarjeta('kudos', newTarjetaTitle3, '');  setNewTarjetaTitle3(''); }}
             >  Agregar
           </button>
